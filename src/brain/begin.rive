@@ -1,0 +1,4 @@
+! version = 2.0
++ remover *
+- {"command": "remove", "id": <star1>}
++ selecionar *

@@ -1,0 +1,14 @@
+{
+  "name": "restaurante-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@adiwajshing/baileys": "^3.4.1",
+    "dotenv": "^8.2.0",
+    "google-spreadsheet": "^3.1.15",
+    "mysql2": "^2.2.5",
+    "rivescript": "^2.1.0",
+    "sequelize": "^6.6.2"
+  }
+}
