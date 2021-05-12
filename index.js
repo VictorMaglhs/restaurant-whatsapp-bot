@@ -1,21 +1,23 @@
 const { and } = require('sequelize')
 
 module.exports = HandleConnection = async () => {
+  //const { authInfo } = require('./src/connections/AuthInfo')
   const Customer = require('./src/models/Customer')
   const Product = require('./src/models/Product')
   const CustomerProduct = require('./src/models/CustomerProduct')
   const sequelize = require('./src/singletons/sequelize')
   const Sequelize = require('sequelize')
-  const { authInfo } = require('./src/connections/AuthInfo')
   const WhatsAppWeb = require('@adiwajshing/baileys')
   const { WAConnection, MessageType, Presence, MessageOptions, Mimetype, WALocationMessage, WA_MESSAGE_STUB_TYPES, ReconnectMode, ProxyAgent, waChatKey } = WhatsAppWeb
   const conn = new WAConnection()
+  const fs = require('fs');
 
   conn.autoReconnect = ReconnectMode.onConnectionLost
   conn.connectOptions.maxRetries = 10
   conn.charOrderingKey = waChatKey(true)
-
-  await conn.loadAuthInfo(authInfo)
+  //await conn.loadAuthInfo(authInfo)
+  fs.existsSync('./auth_info.json');
+  fs.writeFileSync('./auth_info.json', JSON.stringify(authInfo, null, '\t'));
   await conn.connect()
   const { QueryTypes } = Sequelize
 
